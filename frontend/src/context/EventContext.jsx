@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 import { UserContext } from './UserContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,13 +22,20 @@ export const EventProvider = ({ children }) => {
     }
 
     setLoading(true);
-    axios.get('/api/events', {
+    fetch('https://phase-4-2.onrender.com/api/events', {
+      method: 'GET',
       headers: {
         'Authorization': `Bearer ${authToken}`,
       },
     })
       .then((response) => {
-        setEvents(response.data);
+        if (!response.ok) {
+          throw new Error('Error fetching events');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setEvents(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -38,12 +44,10 @@ export const EventProvider = ({ children }) => {
         setLoading(false);
       });
   }, [authToken, navigate]);
+
   const data = {
     events,
     setEvents,
-    // addLoan,
-    // updateLoan,
-    // deleteLoan,
   };
 
   return (
@@ -52,4 +56,3 @@ export const EventProvider = ({ children }) => {
     </EventContext.Provider>
   );
 };
-
