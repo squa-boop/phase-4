@@ -1,0 +1,104 @@
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color:green; /* Light gray background */
+  color: #333; /* Dark text color for readability */
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #34495e; /* Dark blue-gray background */
+}
+
+.navbar .navbar-brand {
+  color: green; /* Light text for the brand */
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.navbar .navbar-toggler-icon {
+  background-color: #ecf0f1; /* Light color for toggler */
+}
+
+.navbar-nav .nav-link {
+  color: grey; /* Light color for nav links */
+  font-size: 1.1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: red; /* Bright yellow on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Social Media Icon Styles */
+.navbar .nav-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.navbar .nav-item a i {
+  font-size: 1.8rem; /* Bigger icons */
+  color: grey;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar .nav-item a:hover i {
+  color: #f39c12; /* Icon color changes on hover */
+  transform: scale(1.2); /* Increase icon size on hover */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+  .navbar .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Global styles for footer */
+footer {
+  background-color: #2c3e50; /* Dark background for footer */
+  color: black; /* Light text color */
+  padding: 30px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+  color: black; /* Slightly lighter text for copyright */
+}
+
+/* Social Media Icons in Footer */
+footer .nav-item {
+  list-style: none;
+}
+
+footer .nav-item a {
+  font-size: 2rem; /* Larger icons */
+  color: grey; /* Light color for icons */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+footer .nav-item a:hover {
+  color: #f39c12; /* Bright yellow color on hover */
+  transform: scale(1.2); /* Slightly enlarge the icon on hover */
+}
+
+/* Space out social media icons */
+footer .nav-item.mx-3 {
+  margin: 0 15px; /* Horizontal margin between icons */
+}
+
+/* Make the footer responsive */
+@media (max-width: 768px) {
+  footer .nav-item a {
+    font-size: 1.5rem; /* Smaller icons on mobile */
+  }
+}
