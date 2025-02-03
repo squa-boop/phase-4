@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';
 import { EventProvider } from './context/EventContext';
 import Layout from './components/Layout'; // Layout component that includes Navbar and Footer
@@ -9,17 +9,15 @@ import Register from './pages/Register';
 import EventDetails from './pages/EventDetails';
 import CreateEvent from './pages/CreateEvent';
 import Profile from './pages/Profile';
-import Dashboard from './pages/Dashboard';
-import AddEvent from './pages/AddEvent';
-import EditEvent from './pages/EditEvent';
-import ViewEvent from './pages/ViewEvent';
 import EventsList from './pages/EventList';
+import Dashboard from './pages/Dashboard';
 
 import './App.css';
+// import ProtectedRoute from './components/ProtectedRoute'; // Import the ProtectedRoute component
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       {/* Wrap the entire app with both providers */}
       <UserProvider>
         <EventProvider>
@@ -31,17 +29,35 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/events" element={<EventsList />} />
               <Route path="/events/:eventId" element={<EventDetails />} />
-              <Route path="/create-event" element={<CreateEvent />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/addevent" element={<AddEvent />} />
-              <Route path="/edit-event/:eventId" element={<EditEvent />} />
-              <Route path="/event/:eventId" element={<ViewEvent />} />
+              <Route
+                path="/create-event"
+                element={
+                  // <ProtectedRoute>
+                    <CreateEvent />
+                  // </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  // <ProtectedRoute>
+                    <Profile />
+                  // </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dashboard"
+                element={
+                  // <ProtectedRoute>
+                    <Dashboard />
+                  // </ProtectedRoute>
+                }
+              />
             </Route>
           </Routes>
         </EventProvider>
       </UserProvider>
-    </Router>
+    </BrowserRouter>
   );
 }
 

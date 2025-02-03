@@ -25,7 +25,7 @@ export const UserProvider = ({ children }) => {
     toast.loading("Logging you in ... ");
 
     try {
-      const response = await fetch("https://phase-4.onrender.com/login", {
+      const response = await fetch("https://phase-4-2.onrender.com/login", {
         method: "POST",
         headers: {
           'Content-type': 'application/json',
@@ -81,7 +81,7 @@ export const UserProvider = ({ children }) => {
     setLoading(true); // Set loading state to true before fetching
 
     try {
-      const response = await fetch('https://phase-4.onrender.com/current_user', {
+      const response = await fetch('https://phase-4-2.onrender.com/current_user', {
         method: "GET",
         headers: {
           'Content-type': 'application/json',
@@ -132,7 +132,7 @@ export const UserProvider = ({ children }) => {
     toast.loading("Registering you...");
 
     try {
-      const response = await fetch("https://phase-4.onrender.com/users", {
+      const response = await fetch("https://phase-4-2.onrender.com/users", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
